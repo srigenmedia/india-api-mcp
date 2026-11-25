@@ -17,7 +17,7 @@ function uniqueSorted(values: string[]): string[] {
   return Array.from(new Set(values.filter(Boolean))).sort((a, b) => a.localeCompare(b));
 }
 
-/** Render SSR searchable catalog page listing all 220 Indian public APIs. */
+/** Render SSR searchable catalog page listing all Indian public APIs. */
 export function renderCatalogHtml(): string {
   const domains = uniqueSorted(CATALOG.map((a) => a.domain));
   const tiers = uniqueSorted(CATALOG.map((a) => a.access_tier));
@@ -42,7 +42,7 @@ export function renderCatalogHtml(): string {
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>220 Indian Public APIs Catalog — SriGenMedia MCP</title>
+  <title>${CATALOG.length} Indian Public APIs Catalog — SriGenMedia MCP</title>
   <style>
     :root { color-scheme: dark; }
     * { box-sizing: border-box; }
@@ -69,6 +69,7 @@ export function renderCatalogHtml(): string {
     .pill { display: inline-block; background: #1e293b; border: 1px solid #475569; padding: 0.1rem 0.45rem; border-radius: 999px; font-size: 0.78rem; }
     code { color: #fde68a; }
     .notice { background: #1e293b; border-left: 4px solid #f59e0b; padding: 0.75rem 1rem; border-radius: 0.5rem; margin-bottom: 1rem; font-size: 0.9rem; color: #e2e8f0; }
+    .cta { margin-top: 1.5rem; background: #1e293b; border: 1px solid #10b981; border-radius: 0.6rem; padding: 1rem 1.15rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.85rem; }
   </style>
 </head>
 <body>
@@ -90,6 +91,7 @@ export function renderCatalogHtml(): string {
       <div class="nav">
         <a class="btn" href="/">Back to MCP Overview</a>
         <a class="btn pri" href="/catalog.json">Download JSON</a>
+        <a class="btn pri" href="https://fde.srigenmedia.com/?utm_source=india-api-mcp&amp;utm_medium=catalog_nav&amp;utm_campaign=dedicated_quota" rel="noopener">Dedicated Quota / FDE</a>
       </div>
     </div>
 
@@ -109,6 +111,13 @@ export function renderCatalogHtml(): string {
         <thead><tr><th>ID</th><th>API &amp; Provider</th><th>Domain</th><th>Access &amp; Auth</th><th>Capabilities</th></tr></thead>
         <tbody id="rows">${rows}</tbody>
       </table>
+    </div>
+    <div class="cta">
+      <div><strong>Need higher rate limits, private OGD relays, or custom integration for Sandbox/Partner Indian APIs?</strong></div>
+      <div class="nav">
+        <a class="btn pri" href="https://fde.srigenmedia.com/?utm_source=india-api-mcp&amp;utm_medium=catalog_footer&amp;utm_campaign=fde_integration" rel="noopener">Talk to SriGenMedia FDE &rarr;</a>
+        <a class="btn" href="https://github.com/srigenmedia/india-api-mcp/issues/new?template=api-request.yml" rel="noopener">Request an API</a>
+      </div>
     </div>
   </main>
   <script>

@@ -41,6 +41,8 @@ export function createHandler(deps?: RuntimeDeps) {
       const ipHash = fnv1aHash(request.headers.get("cf-connecting-ip") ?? "local");
       let status = 500;
       let path = "/";
+      let rpcMethod: string | undefined;
+      let tool: string | undefined;
       try {
         if (hasRawTraversal(request.url)) {
           status = 400;
@@ -161,7 +163,10 @@ export function createHandler(deps?: RuntimeDeps) {
               })
             );
           }
-          const resp = await handleMcpRequest(request, env, ctx, deps);
+          const resp = await handleMcpRequest(request, env, ctx, deps, (meta) => {
+            if (meta.rpc_method) rpcMethod = meta.rpc_method;
+            if (meta.tool) tool = meta.tool;
+          });
           status = resp.status;
           return withHeaders(resp);
         }
@@ -189,7 +194,9 @@ export function createHandler(deps?: RuntimeDeps) {
             path,
             status,
             ip_hash: ipHash,
-            ms: Date.now() - start
+            ms: Date.now() - start,
+            ...(rpcMethod ? { rpc_method: rpcMethod } : {}),
+            ...(tool ? { tool } : {})
           })
         );
       }

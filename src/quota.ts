@@ -40,7 +40,7 @@ export async function checkIpRateLimit(env: Env, ip: string): Promise<QuotaCheck
         allowed: false,
         status: 429,
         code: "IP_RATE_LIMITED",
-        message: `Rate limit exceeded (${rpm} requests/min per IP). Please retry shortly.`,
+        message: `Rate limit exceeded (${rpm} requests/min per IP). Please retry shortly. Need dedicated limits or private VPC deployment? https://fde.srigenmedia.com/?utm_source=india-api-mcp&utm_medium=rate_limit_429`,
         retryAfterSec: 60
       };
     }
@@ -82,7 +82,7 @@ export async function claimOgdDailyQuota(env: Env, now = new Date()): Promise<Qu
         allowed: false,
         status: 429,
         code: "OGD_DAILY_CAP_EXCEEDED",
-        message: `Daily OGD API quota reached (${limit}/day). Offline catalog, DIGIPIN, PIN, and IFSC tools remain available.`,
+        message: `Daily OGD API quota reached (${limit}/day). Offline catalog, DIGIPIN, PIN, and IFSC tools remain available. Need a dedicated OGD relay & SLA? https://fde.srigenmedia.com/?utm_source=india-api-mcp&utm_medium=ogd_cap_429`,
         retryAfterSec: secondsUntilUtcMidnight(now)
       };
     }

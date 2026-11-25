@@ -43,7 +43,7 @@ def _trim(data) -> dict:
 # ---------------- Catalog tools (offline) ----------------
 @mcp.tool
 def search_apis(query: str = "", domain: str = "", access_tier: str = "", auth_method: str = "", limit: int = 20) -> list[dict]:
-    """Search the catalog of 220 Indian public APIs by keyword, domain, access tier or auth method."""
+    """Search the catalog of Indian public APIs by keyword, domain, access tier or auth method."""
     q = query.lower()
     out = [a for a in CATALOG
            if (not q or q in (a["name"] + a["provider"] + a["capabilities"] + a["sub_domain"]).lower())

@@ -1,3 +1,4 @@
+import { CATALOG } from "./catalog";
 import { McpToolDef } from "./types";
 
 const RO_ANNOTATIONS = {
@@ -9,7 +10,7 @@ const RO_ANNOTATIONS = {
 export const INDIA_API_MCP_TOOLS: readonly McpToolDef[] = [
   {
     name: "search_apis",
-    description: "Search the catalog of 220 Indian public APIs by keyword, domain, access tier or auth method.",
+    description: `Search the catalog of ${CATALOG.length} Indian public APIs by keyword, domain, access tier or auth method.`,
     inputSchema: {
       type: "object",
       properties: {

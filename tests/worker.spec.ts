@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import catalogFile from "../data/india_public_apis.json";
 import { CATALOG, getApi, listTaxonomy, searchApis } from "../src/catalog";
 import { digipinDecode, digipinEncode } from "../src/digipin";
 import { createHandler } from "../src/index";
@@ -52,12 +53,30 @@ function createMemoryCache(): Cache {
 }
 
 describe("india-api-mcp catalog, digipin, and MCP protocol", () => {
-  it("loads 220 APIs and matches Python catalog search/get/taxonomy", () => {
-    expect(CATALOG.length).toBe(220);
+  it("loads 246 grounded APIs and matches catalog search/get/taxonomy invariants", () => {
+    expect(CATALOG.length).toBe(246);
+    expect(CATALOG.length).toBe(catalogFile.count);
     expect(searchApis({ query: "aadhaar" }).length).toBeGreaterThan(0);
+    expect(searchApis({ query: "aikosh" }).length).toBeGreaterThan(0);
     const first = getApi("IN-API-0001");
     expect("id" in first && first.id).toBe("IN-API-0001");
     expect(Object.keys(listTaxonomy()).length).toBeGreaterThanOrEqual(8);
+
+    const seenIds = new Set<string>();
+    CATALOG.forEach((api, idx) => {
+      const expectedId = `IN-API-${String(idx + 1).padStart(4, "0")}`;
+      expect(api.id).toBe(expectedId);
+      expect(seenIds.has(api.id)).toBe(false);
+      seenIds.add(api.id);
+      expect(api.name.trim().length).toBeGreaterThan(0);
+      expect(api.provider.trim().length).toBeGreaterThan(0);
+      expect(api.domain.trim().length).toBeGreaterThan(0);
+      expect(api.sub_domain.trim().length).toBeGreaterThan(0);
+      expect(api.access_tier.trim().length).toBeGreaterThan(0);
+      expect(api.auth_method.trim().length).toBeGreaterThan(0);
+      expect(api.capabilities.trim().length).toBeGreaterThan(0);
+      expect(api.doc_url.startsWith("https://")).toBe(true);
+    });
   });
 
   it("matches Dak Bhawan DIGIPIN reference vector 39J-49L-L8T4", () => {
@@ -84,36 +103,40 @@ describe("india-api-mcp catalog, digipin, and MCP protocol", () => {
     expect(html).toContain("Not affiliated with");
     expect(html).toContain('href="/catalog"');
     expect(html).toContain("BFSI");
+    expect(html).toContain("fde.srigenmedia.com/?utm_source=india-api-mcp");
+    expect(html).toContain("issues/new?template=api-request.yml");
     expect(html.toLowerCase()).not.toContain("razorpay.com/checkout");
 
     const catalogPage = await handler.fetch(new Request("https://india-api.srigenmedia.com/catalog"), env);
     expect(catalogPage.status).toBe(200);
     const catalogHtml = await catalogPage.text();
     expect(catalogHtml).toContain("IN-API-0001");
-    expect(catalogHtml).toContain("IN-API-0220");
+    expect(catalogHtml).toContain("IN-API-0246");
+    expect(catalogHtml).toContain("fde.srigenmedia.com/?utm_source=india-api-mcp");
+    expect(catalogHtml).toContain("issues/new?template=api-request.yml");
 
     const catalogJsonRes = await handler.fetch(new Request("https://india-api.srigenmedia.com/catalog.json"), env);
     expect(catalogJsonRes.status).toBe(200);
     const catalogJson = (await catalogJsonRes.json()) as { count: number; apis: unknown[] };
-    expect(catalogJson.count).toBe(220);
-    expect(catalogJson.apis).toHaveLength(220);
+    expect(catalogJson.count).toBe(246);
+    expect(catalogJson.apis).toHaveLength(246);
 
     const taxJsonRes = await handler.fetch(new Request("https://india-api.srigenmedia.com/taxonomy.json"), env);
     expect(taxJsonRes.status).toBe(200);
     const taxJson = (await taxJsonRes.json()) as { count: number; domains: Record<string, Record<string, number>> };
-    expect(taxJson.count).toBe(220);
+    expect(taxJson.count).toBe(246);
     const sum = Object.values(taxJson.domains).reduce(
       (a, subs) => a + Object.values(subs).reduce((b, n) => b + n, 0),
       0
     );
-    expect(sum).toBe(220);
+    expect(sum).toBe(246);
 
     const health = await handler.fetch(new Request("https://india-api.srigenmedia.com/health"), env);
     expect(health.status).toBe(200);
     expect(await health.json()).toMatchObject({
       status: "ok",
       gcp_billing: 0,
-      catalog_count: 220,
+      catalog_count: 246,
       tools: 9,
       ogd_configured: true,
       ogd_daily_used: 3
@@ -186,7 +209,7 @@ describe("india-api-mcp catalog, digipin, and MCP protocol", () => {
     );
     expect(resRead.status).toBe(200);
     const readJson = (await resRead.json()) as { result: { contents: Array<{ text: string }> } };
-    expect(JSON.parse(readJson.result.contents[0].text)).toMatchObject({ count: 220 });
+    expect(JSON.parse(readJson.result.contents[0].text)).toMatchObject({ count: 246 });
   });
 
   it("caches repeated PIN, IFSC, and OGD calls without duplicate upstream fetch or D1 quota", async () => {
@@ -289,5 +312,38 @@ describe("india-api-mcp catalog, digipin, and MCP protocol", () => {
     expect(captured.headers?.get("x-relay-timestamp")).toMatch(/^\d{10}$/);
     expect(captured.headers?.get("x-relay-signature")).toMatch(/^[0-9a-f]{64}$/);
     expect(captured.body).toContain("9ef84268-d588-465a-a308-a864a43d0070");
+  });
+
+  it("logs privacy-safe rpc_method and tool telemetry without tool arguments", async () => {
+    const logs: string[] = [];
+    const origLog = console.log;
+    console.log = (...args: unknown[]) => {
+      logs.push(args.map((a) => String(a)).join(" "));
+    };
+    try {
+      const handler = createHandler({ cache: createMemoryCache() });
+      const res = await handler.fetch(
+        new Request("https://india-api.srigenmedia.com/mcp", {
+          method: "POST",
+          body: JSON.stringify({
+            jsonrpc: "2.0",
+            id: 10,
+            method: "tools/call",
+            params: { name: "search_apis", arguments: { query: "sensitive-query-value" } }
+          })
+        }),
+        {}
+      );
+      expect(res.status).toBe(200);
+      const last = JSON.parse(logs[logs.length - 1] ?? "{}") as {
+        rpc_method?: string;
+        tool?: string;
+      };
+      expect(last.rpc_method).toBe("tools/call");
+      expect(last.tool).toBe("search_apis");
+      expect(logs.join("\n")).not.toContain("sensitive-query-value");
+    } finally {
+      console.log = origLog;
+    }
   });
 });

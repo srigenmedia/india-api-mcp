@@ -95,7 +95,8 @@ export async function handleMcpRequest(
   request: Request,
   env: Env,
   ctx?: ExecutionContext,
-  deps?: RuntimeDeps
+  deps?: RuntimeDeps,
+  onTelemetry?: (meta: { rpc_method?: string; tool?: string }) => void
 ): Promise<Response> {
   const declaredLen = Number.parseInt(request.headers.get("content-length") ?? "0", 10);
   if (Number.isFinite(declaredLen) && declaredLen > MAX_BODY_BYTES) {
@@ -123,11 +124,16 @@ export async function handleMcpRequest(
   if (!body || typeof body !== "object" || Array.isArray(body)) {
     return rpcErr(null, -32600, "Invalid Request", 400);
   }
+  const rpcMethod = typeof body.method === "string" ? body.method : undefined;
+  const calledTool = rpcMethod === "tools/call" ? String(body.params?.name ?? "") : undefined;
+  if (rpcMethod) {
+    onTelemetry?.({ rpc_method: rpcMethod, ...(calledTool ? { tool: calledTool } : {}) });
+  }
 
   if (body.method === "initialize") {
     return rpcOk(body.id, {
       protocolVersion: "2025-11-25",
-      serverInfo: { name: "io.github.srigenmedia/india-api-mcp", version: "0.1.0" },
+      serverInfo: { name: "io.github.srigenmedia/india-api-mcp", version: "0.2.0" },
       capabilities: {
         tools: { listChanged: false },
         resources: { subscribe: false, listChanged: false }
@@ -146,13 +152,13 @@ export async function handleMcpRequest(
         {
           uri: "india-apis://taxonomy",
           name: "India Public APIs Taxonomy",
-          description: "Domain and sub-domain counts across all 220 Indian public APIs.",
+          description: `Domain and sub-domain counts across all ${CATALOG.length} Indian public APIs.`,
           mimeType: "application/json"
         },
         {
           uri: "india-apis://catalog",
           name: "India Public APIs Full Catalog",
-          description: "Complete offline JSON catalog of 220 Indian public APIs (IN-API-0001..IN-API-0220).",
+          description: `Complete offline JSON catalog of ${CATALOG.length} Indian public APIs (${CATALOG[0]?.id ?? "IN-API-0001"}..${CATALOG[CATALOG.length - 1]?.id ?? "IN-API-0246"}).`,
           mimeType: "application/json"
         }
       ]

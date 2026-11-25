@@ -1,5 +1,5 @@
 {
-  "count": 220,
+  "count": 246,
   "apis": [
     {
       "name": "Aadhaar Authentication API (v2.5)",
@@ -85,7 +85,7 @@
       "sub_domain": "Digital Documents (DigiLocker/eSign)",
       "access_tier": "Paid/Commercial",
       "auth_method": "API Key",
-      "doc_url": "https://docs.setu.co/data/digilocker",
+      "doc_url": "https://docs.setu.co/data/digilocker/overview",
       "capabilities": "Create DigiLocker request, status, fetch Aadhaar data / pull documents; sandbox dg-sandbox.setu.co",
       "id": "IN-API-0008"
     },
@@ -184,7 +184,7 @@
       "sub_domain": "data.gov.in OGD",
       "access_tier": "Free w/ Key",
       "auth_method": "API Key",
-      "doc_url": "https://data.gov.in/",
+      "doc_url": "https://www.data.gov.in/",
       "capabilities": "GET api.data.gov.in/resource/{id}?api-key&format=json|xml|csv&limit&offset&filters[...]",
       "id": "IN-API-0017"
     },
@@ -195,7 +195,7 @@
       "sub_domain": "data.gov.in OGD",
       "access_tier": "Free w/ Key",
       "auth_method": "API Key",
-      "doc_url": "https://data.gov.in/resource/current-daily-price-various-commodities-various-markets-mandi",
+      "doc_url": "https://www.data.gov.in/resource/current-daily-price-various-commodities-various-markets-mandi",
       "capabilities": "Daily min/max/modal prices by state, district, market, commodity",
       "id": "IN-API-0018"
     },
@@ -206,7 +206,7 @@
       "sub_domain": "data.gov.in OGD",
       "access_tier": "Free w/ Key",
       "auth_method": "API Key",
-      "doc_url": "https://data.gov.in/resource/real-time-air-quality-index-various-locations",
+      "doc_url": "https://www.data.gov.in/resource/real-time-air-quality-index-various-locations",
       "capabilities": "Hourly pollutant min/max/avg by station with lat/long",
       "id": "IN-API-0019"
     },
@@ -228,8 +228,8 @@
       "sub_domain": "Community API Lists (GitHub public-apis India, Postman, RapidAPI)",
       "access_tier": "Open Public",
       "auth_method": "None",
-      "doc_url": "http://www.postalpincode.in/Api-Details",
-      "capabilities": "/pincode/{PIN} and /postoffice/{name} -> post office, district, division, state JSON",
+      "doc_url": "https://api.postalpincode.in/pincode/110001",
+      "capabilities": "Free HTTPS JSON lookup by 6-digit PIN code (/pincode/{pin}) or post office name (/postoffice/{name}) returning division, district, and state",
       "id": "IN-API-0021"
     },
     {
@@ -239,8 +239,8 @@
       "sub_domain": "Community API Lists (GitHub public-apis India, Postman, RapidAPI)",
       "access_tier": "Sandbox/Partner Approval",
       "auth_method": "API Key",
-      "doc_url": "https://www.postman.com/explore",
-      "capabilities": "Session availability, certificate download (historically public metadata APIs)",
+      "doc_url": "https://github.com/cowinapi/developer.cowin",
+      "capabilities": "CoWIN open API Swagger specs, endpoint schemas (cdn-api.co-vin.in/api), and API Setu integration references",
       "id": "IN-API-0022"
     },
     {
@@ -283,7 +283,7 @@
       "sub_domain": "State Open Data Portals",
       "access_tier": "Free w/ Key",
       "auth_method": "OAuth2",
-      "doc_url": "https://www.adex.org.in",
+      "doc_url": "https://adex.org.in/",
       "capabilities": "Data Explorer API and Resource Server API for agri datasets",
       "id": "IN-API-0026"
     },
@@ -327,7 +327,7 @@
       "sub_domain": "Payments & UPI",
       "access_tier": "Free w/ Key",
       "auth_method": "API Key",
-      "doc_url": "https://razorpay.com/docs/api/",
+      "doc_url": "https://razorpay.com/docs/api",
       "capabilities": "POST /v1/orders, GET/capture /v1/payments, refunds, webhooks; Basic auth key_id:secret",
       "id": "IN-API-0030"
     },
@@ -349,7 +349,7 @@
       "sub_domain": "Payments & UPI",
       "access_tier": "Free w/ Key",
       "auth_method": "API Key",
-      "doc_url": "https://developer.paytm.com/docs/",
+      "doc_url": "https://www.paytmpayments.com/docs",
       "capabilities": "Initiate/Process Transaction, Fetch Payment Options, Transaction Status, subscriptions",
       "id": "IN-API-0032"
     },
@@ -360,7 +360,7 @@
       "sub_domain": "Payments & UPI",
       "access_tier": "Free w/ Key",
       "auth_method": "API Key",
-      "doc_url": "https://docs.cashfree.com/reference/pg-new-apis-endpoint",
+      "doc_url": "https://www.cashfree.com/docs/api-reference/payments/previous/v2023-08-01/overview",
       "capabilities": "Create order/payment_session_id, versioned REST, refunds, settlements, SDKs",
       "id": "IN-API-0033"
     },
@@ -371,8 +371,8 @@
       "sub_domain": "Banking & Lending",
       "access_tier": "Sandbox/Partner Approval",
       "auth_method": "OAuth2",
-      "doc_url": "https://developer.icicibank.com/",
-      "capabilities": "250+ APIs: payments, accounts, cards, deposits; self-service UAT sandbox",
+      "doc_url": "https://www.icici.bank.in/",
+      "capabilities": "Corporate & retail API banking (composite payments, IMPS/NEFT/RTGS, UPI, virtual accounts, trade finance) via RBI .bank.in portal",
       "id": "IN-API-0034"
     },
     {
@@ -382,8 +382,8 @@
       "sub_domain": "Banking & Lending",
       "access_tier": "Sandbox/Partner Approval",
       "auth_method": "OAuth2",
-      "doc_url": "https://yesdeveloper.in",
-      "capabilities": "IMPS/NEFT/RTGS/UPI payouts, collections, balance & statement, prepaid cards",
+      "doc_url": "https://www.yes.bank.in/digital-banking/payment-solutions/api-banking",
+      "capabilities": "Corporate API banking suite (payments, UPI, BBPS, virtual accounts, trade & collections) via YES Bank .bank.in portal",
       "id": "IN-API-0035"
     },
     {
@@ -415,7 +415,7 @@
       "sub_domain": "Capital Markets",
       "access_tier": "Free w/ Key",
       "auth_method": "OAuth2",
-      "doc_url": "https://upstox.com/developer/api/",
+      "doc_url": "https://upstox.com/developer/api-documentation",
       "capabilities": "Order placement, portfolio, market data feed WebSocket (protobuf), historical data",
       "id": "IN-API-0038"
     },
@@ -437,7 +437,7 @@
       "sub_domain": "Capital Markets",
       "access_tier": "Free w/ Key",
       "auth_method": "API Key",
-      "doc_url": "https://www.icicidirect.com/",
+      "doc_url": "https://api.icicidirect.com/breezeapi/documents/index.html",
       "capabilities": "Live NSE/BSE streaming, historical data, order placement",
       "id": "IN-API-0040"
     },
@@ -448,7 +448,7 @@
       "sub_domain": "Capital Markets",
       "access_tier": "Paid/Commercial",
       "auth_method": "API Key",
-      "doc_url": "https://www.nseindia.com/",
+      "doc_url": "https://www.nseindia.in/",
       "capabilities": "Licensed tick-by-tick real-time and historical market data feeds",
       "id": "IN-API-0041"
     },
@@ -481,7 +481,7 @@
       "sub_domain": "Insurance",
       "access_tier": "Paid/Commercial",
       "auth_method": "API Key",
-      "doc_url": "https://www.insuremo.com/",
+      "doc_url": "https://insuremo.com/en",
       "capabilities": "2500+ atomic APIs: quote, underwriting, issuance, claims, billing",
       "id": "IN-API-0044"
     },
@@ -525,7 +525,7 @@
       "sub_domain": "KYC & Verification APIs",
       "access_tier": "Paid/Commercial",
       "auth_method": "API Key",
-      "doc_url": "https://karza.in/",
+      "doc_url": "https://perfios.ai/",
       "capabilities": "PAN, Aadhaar XML, DL, Voter, passport, GST auth, MCA, OCR, face match, penny drop, AML",
       "id": "IN-API-0048"
     },
@@ -580,7 +580,7 @@
       "sub_domain": "KYC & Verification APIs",
       "access_tier": "Free w/ Key",
       "auth_method": "API Key",
-      "doc_url": "https://www.cashfree.com/docs/",
+      "doc_url": "https://www.cashfree.com/docs",
       "capabilities": "Bank account sync/async/bulk verification, PAN, GSTIN, Aadhaar masking, OCR, face liveness",
       "id": "IN-API-0053"
     },
@@ -723,7 +723,7 @@
       "sub_domain": "Tax & Revenue",
       "access_tier": "Paid/Commercial",
       "auth_method": "API Key",
-      "doc_url": "https://www.mastergst.com",
+      "doc_url": "https://mastergst.com/",
       "capabilities": "GSP wrapper for GST returns, e-Way Bill, e-Invoice with sandbox and Postman",
       "id": "IN-API-0066"
     },
@@ -800,8 +800,8 @@
       "sub_domain": "Citizen Services & Grievance",
       "access_tier": "Sandbox/Partner Approval",
       "auth_method": "API Key",
-      "doc_url": "https://apisetu.gov.in/certificate/v3/passportindia",
-      "capabilities": "Consent-based pull of passport verification record into DigiLocker/apps",
+      "doc_url": "https://directory.apisetu.gov.in/",
+      "capabilities": "Fetch Passport Verification Record via API Setu (/certificate/v3/passportindia) with user consent",
       "id": "IN-API-0073"
     },
     {
@@ -844,7 +844,7 @@
       "sub_domain": "Elections & Census",
       "access_tier": "Free w/ Key",
       "auth_method": "API Key",
-      "doc_url": "https://data.gov.in",
+      "doc_url": "https://www.data.gov.in/",
       "capabilities": "Resource-ID based JSON/CSV/XML access to census, election and ministry datasets",
       "id": "IN-API-0077"
     },
@@ -915,14 +915,14 @@
       "id": "IN-API-0083"
     },
     {
-      "name": "IndiaCode JSON API (eCourtsIndia)",
-      "provider": "eCourtsIndia.com",
+      "name": "India Code — Central & State Acts Repository",
+      "provider": "Ministry of Law and Justice / NIC",
       "domain": "Judiciary & Legal",
       "sub_domain": "Legislation & Law Data",
       "access_tier": "Open Public",
       "auth_method": "None",
-      "doc_url": "https://indiacode.ecourtsindia.com/api/v1",
-      "capabilities": "OpenAPI 3.1: Acts, sections (e.g. BNS), subordinate legislation, CORS-enabled",
+      "doc_url": "https://www.indiacode.nic.in/",
+      "capabilities": "Official digital repository of all Central and State Acts in force, bare acts, amendments, subordinate legislation, and section search",
       "id": "IN-API-0084"
     },
     {
@@ -932,7 +932,7 @@
       "sub_domain": "Legislation & Law Data",
       "access_tier": "Open Public",
       "auth_method": "None",
-      "doc_url": "https://lawascode.negd.in/laac-api/v1/",
+      "doc_url": "https://lawascode.negd.in/",
       "capabilities": "Structured JSON for central acts, provisions, penalties (GET /laws/{slug})",
       "id": "IN-API-0085"
     },
@@ -987,7 +987,7 @@
       "sub_domain": "ABDM (ABHA, HIP/HIU, Registries)",
       "access_tier": "Sandbox/Partner Approval",
       "auth_method": "OAuth2",
-      "doc_url": "https://sandbox.abdm.gov.in/docs/healthid",
+      "doc_url": "https://sandbox.nha.gov.in/",
       "capabilities": "Session token, ABHA creation via Aadhaar/mobile OTP, profile, ABHA card download",
       "id": "IN-API-0090"
     },
@@ -998,7 +998,7 @@
       "sub_domain": "ABDM (ABHA, HIP/HIU, Registries)",
       "access_tier": "Sandbox/Partner Approval",
       "auth_method": "OAuth2",
-      "doc_url": "https://sandbox.abdm.gov.in/",
+      "doc_url": "https://sandbox.nha.gov.in/",
       "capabilities": "Care-context linking, discovery, consent requests/artefacts, encrypted FHIR R4 data transfer",
       "id": "IN-API-0091"
     },
@@ -1020,8 +1020,8 @@
       "sub_domain": "Public Health Data",
       "access_tier": "Open Public",
       "auth_method": "None",
-      "doc_url": "https://apisetu.gov.in/public/marketplace/api/cowin",
-      "capabilities": "States/districts, vaccination centre availability by district/PIN, calendar; protected certificate APIs",
+      "doc_url": "https://www.cowin.gov.in/",
+      "capabilities": "CoWIN portal & public API metadata (cdn-api.co-vin.in/api and API Setu certificate/session references)",
       "id": "IN-API-0093"
     },
     {
@@ -1042,7 +1042,7 @@
       "sub_domain": "Public Health Data",
       "access_tier": "Free w/ Key",
       "auth_method": "API Key",
-      "doc_url": "https://data.gov.in",
+      "doc_url": "https://www.data.gov.in/",
       "capabilities": "NHM/HMIS aggregated health indicator datasets via resource ID",
       "id": "IN-API-0095"
     },
@@ -1064,7 +1064,7 @@
       "sub_domain": "Pharmacy & Drugs",
       "access_tier": "Sandbox/Partner Approval",
       "auth_method": "API Key",
-      "doc_url": "https://evitalrx.in",
+      "doc_url": "https://www.evitalrx.in/",
       "capabilities": "Order management, catalog, digital prescriptions, B2B wholesale",
       "id": "IN-API-0097"
     },
@@ -1141,7 +1141,7 @@
       "sub_domain": "Vehicle & Driving License",
       "access_tier": "Paid/Commercial",
       "auth_method": "API Key",
-      "doc_url": "https://eko.in",
+      "doc_url": "https://ekoindia.github.io/eko-developer-docs/",
       "capabilities": "Pending/paid traffic challans by vehicle number: offence, amount, location, status",
       "id": "IN-API-0104"
     },
@@ -1196,7 +1196,7 @@
       "sub_domain": "Logistics & Shipping",
       "access_tier": "Free w/ Key",
       "auth_method": "API Key",
-      "doc_url": "https://apiv2.shiprocket.in/v1/external",
+      "doc_url": "https://apidocs.shiprocket.in/",
       "capabilities": "JWT login, adhoc order create, AWB assign, pickup generation, AWB tracking, webhooks",
       "id": "IN-API-0109"
     },
@@ -1207,7 +1207,7 @@
       "sub_domain": "Logistics & Shipping",
       "access_tier": "Free w/ Key",
       "auth_method": "API Key",
-      "doc_url": "https://ucp.delhivery.com/developer-portal/documents",
+      "doc_url": "https://one.delhivery.com/developer-portal/documents",
       "capabilities": "Pincode serviceability, warehouse, waybill, order creation, labels, pickup, tracking, NDR",
       "id": "IN-API-0110"
     },
@@ -1218,8 +1218,8 @@
       "sub_domain": "Logistics & Shipping",
       "access_tier": "Sandbox/Partner Approval",
       "auth_method": "API Key",
-      "doc_url": "https://www.goulip.in",
-      "capabilities": "Single gateway to VAHAN, SARATHI, FASTag, FOIS, ICEGATE, PCS, e-Way Bill; NDA + sandbox then production",
+      "doc_url": "https://goulip.in/",
+      "capabilities": "DPIIT National Logistics Policy gateway aggregating 30+ ministry systems (Vahan, Sarathi, FASTag, FOIS, ICEGATE, e-Way Bill) via REST APIs",
       "id": "IN-API-0111"
     },
     {
@@ -1295,8 +1295,8 @@
       "sub_domain": "Airports & DigiYatra",
       "access_tier": "Sandbox/Partner Approval",
       "auth_method": "mTLS/India Stack Signature",
-      "doc_url": "https://www.civilaviation.gov.in",
-      "capabilities": "Biometric boarding: DID credentials, face token sharing to airport BBS, DCS manifest sync; NDA-restricted",
+      "doc_url": "https://digiyatrafoundation.com/",
+      "capabilities": "DigiYatra Foundation W3C Verifiable Credential & facial biometric airport boarding ecosystem documentation",
       "id": "IN-API-0118"
     },
     {
@@ -1306,7 +1306,7 @@
       "sub_domain": "Airports & DigiYatra",
       "access_tier": "Free w/ Key",
       "auth_method": "API Key",
-      "doc_url": "https://data.gov.in",
+      "doc_url": "https://www.data.gov.in/",
       "capabilities": "Aircraft movements, passenger & freight traffic by airport (historical datasets)",
       "id": "IN-API-0119"
     },
@@ -1350,7 +1350,7 @@
       "sub_domain": "Flight Data & Booking APIs",
       "access_tier": "Paid/Commercial",
       "auth_method": "API Key",
-      "doc_url": "https://www.tripjack.com",
+      "doc_url": "https://tripjack.com/",
       "capabilities": "Search, pricing, booking, ticketing, amendments; sandbox apitest.tripjack.com",
       "id": "IN-API-0123"
     },
@@ -1394,7 +1394,7 @@
       "sub_domain": "Maps & Geocoding",
       "access_tier": "Free w/ Key",
       "auth_method": "OAuth2",
-      "doc_url": "https://developer.mappls.com/documentation",
+      "doc_url": "https://developer.mappls.com/documentation/",
       "capabilities": "Maps SDKs, autosuggest, geocode/reverse geocode, nearby, routing, distance matrix, traffic, DIGIPIN",
       "id": "IN-API-0127"
     },
@@ -1405,7 +1405,7 @@
       "sub_domain": "Maps & Geocoding",
       "access_tier": "Free w/ Key",
       "auth_method": "OAuth2",
-      "doc_url": "https://maps.olakrutrim.com",
+      "doc_url": "https://maps.olakrutrim.com/docs",
       "capabilities": "api.olamaps.io: directions, distance matrix, route optimizer, geocode, autocomplete, place details, vector tiles",
       "id": "IN-API-0128"
     },
@@ -1438,7 +1438,7 @@
       "sub_domain": "Weather & Climate",
       "access_tier": "Free w/ Key",
       "auth_method": "API Key",
-      "doc_url": "https://data.gov.in",
+      "doc_url": "https://www.data.gov.in/",
       "capabilities": "Real-time/historical AQI and pollutant readings from CAAQMS stations",
       "id": "IN-API-0131"
     },
@@ -1537,8 +1537,8 @@
       "sub_domain": "Survey & Land Records",
       "access_tier": "Open Public",
       "auth_method": "None",
-      "doc_url": "https://www.indiapost.gov.in",
-      "capabilities": "Open-source encode lat/lon to 10-char ~4m grid code and decode back",
+      "doc_url": "https://github.com/CEPT-VZG/digipin",
+      "capabilities": "Department of Posts / IIT Hyderabad / NRSC open-source ~4m x 4m geo-coded national addressing grid (10-char DIGIPIN) & reference code",
       "id": "IN-API-0140"
     },
     {
@@ -1581,8 +1581,8 @@
       "sub_domain": "Telecom & Messaging",
       "access_tier": "Paid/Commercial",
       "auth_method": "API Key",
-      "doc_url": "http://docs.karix.io/v2",
-      "capabilities": "HTTP/REST & SMPP SMS sending, DLT entity/template mapping and chain hashing, DLR callbacks",
+      "doc_url": "https://www.karix.com/",
+      "capabilities": "Tanla / Karix enterprise messaging APIs (api.karix.io v2) for DLT-compliant SMS, OTP authenticator, and WhatsApp Business APIs",
       "id": "IN-API-0144"
     },
     {
@@ -1625,7 +1625,7 @@
       "sub_domain": "Bill Payments",
       "access_tier": "Sandbox/Partner Approval",
       "auth_method": "API Key",
-      "doc_url": "https://razorpay.com/docs/",
+      "doc_url": "https://razorpay.com/docs/home",
       "capabilities": "Fetch biller categories, billers, create bill request (fetch), pay bill, webhooks; Postman public workspace",
       "id": "IN-API-0148"
     },
@@ -1658,7 +1658,7 @@
       "sub_domain": "Bill Payments",
       "access_tier": "Sandbox/Partner Approval",
       "auth_method": "API Key",
-      "doc_url": "https://developers.eko.in/",
+      "doc_url": "https://ekoindia.github.io/eko-developer-docs/",
       "capabilities": "Biller list, fetch bill, pay bill for electricity, water, gas, LPG, FASTag; OpenAPI specs",
       "id": "IN-API-0151"
     },
@@ -1681,7 +1681,7 @@
       "access_tier": "Open Public",
       "auth_method": "None",
       "doc_url": "https://nwic.gov.in/",
-      "capabilities": "570+ APIs for groundwater, surface water, telemetry data in JSON/CSV",
+      "capabilities": "National Water Informatics Centre (NWIC) & National Water Data Portal (NWDP) hydrological, river gauge, and reservoir telemetry APIs",
       "id": "IN-API-0153"
     },
     {
@@ -1823,7 +1823,7 @@
       "sub_domain": "Retail Utilities",
       "access_tier": "Free w/ Key",
       "auth_method": "API Key",
-      "doc_url": "https://data.gov.in/",
+      "doc_url": "https://www.data.gov.in/",
       "capabilities": "api.data.gov.in/resource/{id} pincode directory records with filters, JSON/CSV/XML",
       "id": "IN-API-0166"
     },
@@ -1834,7 +1834,7 @@
       "sub_domain": "Market Prices",
       "access_tier": "Free w/ Key",
       "auth_method": "API Key",
-      "doc_url": "https://data.gov.in/resource/current-daily-price-various-commodities-various-markets-mandi",
+      "doc_url": "https://www.data.gov.in/resource/current-daily-price-various-commodities-various-markets-mandi",
       "capabilities": "api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070: state/district/market/commodity min/max/modal price, filters, pagination",
       "id": "IN-API-0167"
     },
@@ -1868,7 +1868,7 @@
       "access_tier": "Sandbox/Partner Approval",
       "auth_method": "OAuth2",
       "doc_url": "https://agristack.gov.in/",
-      "capabilities": "Consent-based APIs to Farmer Registry (Farmer ID), geo-referenced land maps, crop sown registry; sandbox with synthetic data",
+      "capabilities": "Federated agriculture DPI connecting Farmers Registry, Crop Sown Registry (Digital Crop Survey), and Geo-Referenced Village Maps with DPDP consent",
       "id": "IN-API-0170"
     },
     {
@@ -1944,7 +1944,7 @@
       "sub_domain": "Grid & Power Market",
       "access_tier": "Open Public",
       "auth_method": "None",
-      "doc_url": "https://cea.nic.in/api-for-central-electricity-authority-data/?lang=en",
+      "doc_url": "https://cea.nic.in/",
       "capabilities": "Installed capacity (incl RES), power supply position, transmission lines, generation, per-capita consumption",
       "id": "IN-API-0177"
     },
@@ -1999,7 +1999,7 @@
       "sub_domain": "Renewable & EV Charging",
       "access_tier": "Sandbox/Partner Approval",
       "auth_method": "API Key",
-      "doc_url": "https://ionage.in/",
+      "doc_url": "https://www.ionage.in/",
       "capabilities": "EVSE data aggregation across CPOs, session management APIs/SDKs, OCPI",
       "id": "IN-API-0182"
     },
@@ -2021,7 +2021,7 @@
       "sub_domain": "Renewable & EV Charging",
       "access_tier": "Sandbox/Partner Approval",
       "auth_method": "API Key",
-      "doc_url": "https://statiq.in/",
+      "doc_url": "https://www.statiq.in/",
       "capabilities": "Charge station management for B2B hosts (OCPP); partner integrations only",
       "id": "IN-API-0184"
     },
@@ -2032,7 +2032,7 @@
       "sub_domain": "Renewable & EV Charging",
       "access_tier": "Free w/ Key",
       "auth_method": "API Key",
-      "doc_url": "https://data.gov.in/",
+      "doc_url": "https://www.data.gov.in/",
       "capabilities": "State-wise solar/wind/bio/hydro installed capacity resources via OGD API",
       "id": "IN-API-0185"
     },
@@ -2142,7 +2142,7 @@
       "sub_domain": "Learning Platforms",
       "access_tier": "Open Public",
       "auth_method": "OAuth2",
-      "doc_url": "https://docs.sunbirdrc.dev/",
+      "doc_url": "https://github.com/Sunbird-RC",
       "capabilities": "Schema-driven registry CRUD, attestation, claims, discovery, W3C verifiable credential issuance (self-hosted)",
       "id": "IN-API-0195"
     },
@@ -2164,7 +2164,7 @@
       "sub_domain": "Skilling & Employment",
       "access_tier": "Sandbox/Partner Approval",
       "auth_method": "API Key",
-      "doc_url": "https://www.ncs.gov.in/",
+      "doc_url": "https://ncs.gov.in/",
       "capabilities": "Job posting push/sync for employers & portals, candidate matching; credentials issued on request",
       "id": "IN-API-0197"
     },
@@ -2187,7 +2187,7 @@
       "access_tier": "Free w/ Key",
       "auth_method": "API Key",
       "doc_url": "https://dibd-bhashini.gitbook.io/bhashini-apis/",
-      "capabilities": "Pipeline search/config/compute for ASR, NMT, TTS, OCR, transliteration across 22 languages; WebSocket streaming ASR",
+      "capabilities": "ULCA & Bhashini pipeline APIs for 22+ scheduled Indian languages: ASR/STT, TTS, neural machine translation (NMT), and OCR",
       "id": "IN-API-0199"
     },
     {
@@ -2274,7 +2274,7 @@
       "sub_domain": "News & Media/Broadcast",
       "access_tier": "Free w/ Key",
       "auth_method": "API Key",
-      "doc_url": "https://mediastack.com/documentation",
+      "doc_url": "https://marketplace.apilayer.com/mediastack-api",
       "capabilities": "Live/historical news with countries=in filter",
       "id": "IN-API-0207"
     },
@@ -2285,8 +2285,8 @@
       "sub_domain": "Official Statistics",
       "access_tier": "Free w/ Key",
       "auth_method": "API Key",
-      "doc_url": "https://api.mospi.gov.in",
-      "capabilities": "CPI, WPI, IIP, NAS, PLFS, ASI, energy datasets; signup + token login; Swagger UI; mospi-esankhyiki Python client",
+      "doc_url": "https://esankhyiki.mospi.gov.in",
+      "capabilities": "Official MoSPI statistical APIs & mospi-esankhyiki Python package for PLFS, CPI, WPI, IIP, National Accounts (NAS), and ASI datasets",
       "id": "IN-API-0208"
     },
     {
@@ -2340,7 +2340,7 @@
       "sub_domain": "Central Bank & Monetary Data",
       "access_tier": "Paid/Commercial",
       "auth_method": "API Key",
-      "doc_url": "https://www.ibrlive.com",
+      "doc_url": "https://ibrlive.com/",
       "capabilities": "RBI reference rates, customs exchange rates, historical archives for ERP",
       "id": "IN-API-0213"
     },
@@ -2395,7 +2395,7 @@
       "sub_domain": "Currency & Holidays",
       "access_tier": "Free w/ Key",
       "auth_method": "API Key",
-      "doc_url": "https://developers.google.com/calendar/api",
+      "doc_url": "https://developers.google.com/workspace/calendar/api/guides/overview",
       "capabilities": "events on en.indian.official#holiday@group.v.calendar.google.com with timeMin/timeMax",
       "id": "IN-API-0218"
     },
@@ -2420,6 +2420,292 @@
       "doc_url": "https://frankfurter.dev",
       "capabilities": "v2/rates?base=inr, v2/rate/usd/inr, CSV output; central-bank sourced rates",
       "id": "IN-API-0220"
+    },
+    {
+      "name": "AIKosh — IndiaAI Datasets & Models Portal",
+      "provider": "IndiaAI / MeitY",
+      "domain": "Open Data & Aggregators",
+      "sub_domain": "National AI & Open Datasets",
+      "access_tier": "Open Public",
+      "auth_method": "None",
+      "doc_url": "https://aikosh.indiaai.gov.in",
+      "capabilities": "National AI repository hosting Indian language datasets, sector benchmarks (Dhenu, KisanSLM), and open-weight Indic models",
+      "id": "IN-API-0221"
+    },
+    {
+      "name": "MyScheme Portal & Eligibility Discovery APIs",
+      "provider": "NeGD / MeitY",
+      "domain": "Governance & Public Services",
+      "sub_domain": "Citizen Schemes & Welfare",
+      "access_tier": "Sandbox/Partner Approval",
+      "auth_method": "API Key",
+      "doc_url": "https://www.myscheme.gov.in",
+      "capabilities": "Central & state welfare scheme catalog, demographic eligibility matching, and API Setu citizen scheme discovery integration",
+      "id": "IN-API-0222"
+    },
+    {
+      "name": "ISRO VEDAS Earth Observation & API Centre",
+      "provider": "SAC / ISRO",
+      "domain": "Geo-Spatial, Weather & SpaceTech",
+      "sub_domain": "Satellite & Earth Observation",
+      "access_tier": "Open Public",
+      "auth_method": "API Key",
+      "doc_url": "https://vedas.sac.gov.in/en/",
+      "capabilities": "Visualisation of Earth Observation Data and Archival System (VEDAS) geospatial layers, crop/snow/solar indices, and OGC APIs",
+      "id": "IN-API-0223"
+    },
+    {
+      "name": "ISRO ISSDC / PRADAN Space Science Data Archive",
+      "provider": "ISSDC / ISRO",
+      "domain": "Geo-Spatial, Weather & SpaceTech",
+      "sub_domain": "Space Science Archives",
+      "access_tier": "Free w/ Key",
+      "auth_method": "API Key",
+      "doc_url": "https://pradan.issdc.gov.in",
+      "capabilities": "Payload science archives for Chandrayaan-2/3, Aditya-L1, AstroSat, and XPoSat missions via PRADAN retrieval portal",
+      "id": "IN-API-0224"
+    },
+    {
+      "name": "INCOIS Ocean State & Tsunami Information Services",
+      "provider": "INCOIS / MoES",
+      "domain": "Geo-Spatial, Weather & SpaceTech",
+      "sub_domain": "Oceanography & Marine Hazards",
+      "access_tier": "Open Public",
+      "auth_method": "None",
+      "doc_url": "https://incois.gov.in",
+      "capabilities": "Ocean state forecasts, Potential Fishing Zone (PFZ) advisories, Argo buoy telemetry, and tsunami early warning feeds",
+      "id": "IN-API-0225"
+    },
+    {
+      "name": "OpenCity India Civic Data CKAN API",
+      "provider": "Oorvani Foundation / OpenCity",
+      "domain": "Open Data & Aggregators",
+      "sub_domain": "Urban & Municipal Open Data",
+      "access_tier": "Open Public",
+      "auth_method": "None",
+      "doc_url": "https://data.opencity.in",
+      "capabilities": "CKAN Action API (package_search, datastore_search) for Indian city budgets, wards, bus routes, lakes, and municipal civic datasets",
+      "id": "IN-API-0226"
+    },
+    {
+      "name": "NITI Aayog NDAP (National Data & Analytics Platform)",
+      "provider": "NITI Aayog",
+      "domain": "Statistics & Economy",
+      "sub_domain": "National Development Statistics",
+      "access_tier": "Open Public",
+      "auth_method": "None",
+      "doc_url": "https://ndap.niti.gov.in",
+      "capabilities": "Harmonized, standardized district- and state-level datasets across SDG indicators, agriculture, health, and infrastructure",
+      "id": "IN-API-0227"
+    },
+    {
+      "name": "AMFI India Daily Mutual Fund NAV Feed (NAVAll.txt)",
+      "provider": "AMFI India",
+      "domain": "BFSI",
+      "sub_domain": "Mutual Funds & Wealth",
+      "access_tier": "Open Public",
+      "auth_method": "None",
+      "doc_url": "https://portal.amfiindia.com/spages/NAVAll.txt",
+      "capabilities": "Official daily semicolon-delimited text feed of all Indian mutual fund scheme codes, ISINs, scheme names, and latest NAVs",
+      "id": "IN-API-0228"
+    },
+    {
+      "name": "MFapi.in Indian Mutual Fund JSON API",
+      "provider": "MFapi.in",
+      "domain": "BFSI",
+      "sub_domain": "Mutual Funds & Wealth",
+      "access_tier": "Open Public",
+      "auth_method": "None",
+      "doc_url": "https://www.mfapi.in/",
+      "capabilities": "Free keyless REST JSON wrapper over AMFI data (/mf, /mf/{scheme_code}, /mf/{scheme_code}/latest) with full historical NAVs",
+      "id": "IN-API-0229"
+    },
+    {
+      "name": "CERSAI CKYCRR 2.0 (Central KYC Registry) APIs",
+      "provider": "CERSAI",
+      "domain": "BFSI",
+      "sub_domain": "KYC & Regulatory Registries",
+      "access_tier": "Sandbox/Partner Approval",
+      "auth_method": "mTLS/India Stack Signature",
+      "doc_url": "https://www.ckycindia.in/ckyc/index.php",
+      "capabilities": "Real-time CKYCRR 2.0 Search, Secured Download, and Upload APIs for SEBI/RBI/IRDAI/PFRDA regulated Reporting Entities",
+      "id": "IN-API-0230"
+    },
+    {
+      "name": "CERSAI Security Interest & Mortgage Registry",
+      "provider": "CERSAI",
+      "domain": "BFSI",
+      "sub_domain": "Credit & Collateral Registries",
+      "access_tier": "Sandbox/Partner Approval",
+      "auth_method": "API Key",
+      "doc_url": "https://www.cersai.org.in",
+      "capabilities": "Central registry search and filing services for equitable mortgages, hypothecation, and security interests under SARFAESI Act",
+      "id": "IN-API-0231"
+    },
+    {
+      "name": "SEBI Capital Markets Data & Regulatory Disclosures",
+      "provider": "SEBI",
+      "domain": "BFSI",
+      "sub_domain": "Capital Markets & Regulation",
+      "access_tier": "Open Public",
+      "auth_method": "None",
+      "doc_url": "https://www.sebi.gov.in",
+      "capabilities": "Official circulars, FPI/AIF/PMS statistics, enforcement orders, and public capital market filings published by SEBI",
+      "id": "IN-API-0232"
+    },
+    {
+      "name": "DhanHQ Trading & Market Data API v2",
+      "provider": "Dhan (Raise Financial)",
+      "domain": "BFSI",
+      "sub_domain": "Capital Markets & Broking",
+      "access_tier": "Free w/ Key",
+      "auth_method": "API Key",
+      "doc_url": "https://dhanhq.co/docs/v2/",
+      "capabilities": "Low-latency REST & WebSocket market feeds, option chain, historical OHLCV, order execution, and portfolio APIs for NSE/BSE/MCX",
+      "id": "IN-API-0233"
+    },
+    {
+      "name": "FYERS Trading & WebSocket API v3",
+      "provider": "FYERS Securities",
+      "domain": "BFSI",
+      "sub_domain": "Capital Markets & Broking",
+      "access_tier": "Free w/ Key",
+      "auth_method": "OAuth2",
+      "doc_url": "https://fyers.in/api-docs/introduction/",
+      "capabilities": "High-throughput REST & WebSocket market depth, multi-leg options, order/position sockets, and historical data APIs",
+      "id": "IN-API-0234"
+    },
+    {
+      "name": "TReDS MSME Receivables Exchanges (RXIL / M1xchange / Invoicemart)",
+      "provider": "RBI-Regulated TReDS Exchanges",
+      "domain": "BFSI",
+      "sub_domain": "MSME Supply Chain Finance",
+      "access_tier": "Sandbox/Partner Approval",
+      "auth_method": "API Key",
+      "doc_url": "https://www.rxil.in",
+      "capabilities": "ERP-to-exchange APIs for MSME factoring units, invoice upload, financier bidding, and RBI-regulated settlement workflows",
+      "id": "IN-API-0235"
+    },
+    {
+      "name": "GeM (Government e-Marketplace) Integration APIs",
+      "provider": "GeM / Ministry of Commerce",
+      "domain": "Governance & Public Services",
+      "sub_domain": "Public Procurement",
+      "access_tier": "Sandbox/Partner Approval",
+      "auth_method": "API Key",
+      "doc_url": "https://gem.gov.in",
+      "capabilities": "Public procurement catalog, seller onboarding, bid/order lifecycle, and TReDS payment integration APIs for government buyers/vendors",
+      "id": "IN-API-0236"
+    },
+    {
+      "name": "MCA21 V3 Corporate & LLP Registry Services",
+      "provider": "Ministry of Corporate Affairs",
+      "domain": "Governance & Public Services",
+      "sub_domain": "Corporate Registry",
+      "access_tier": "Sandbox/Partner Approval",
+      "auth_method": "API Key",
+      "doc_url": "https://www.mca.gov.in/content/mca/global/en/home.html",
+      "capabilities": "CIN/LLPIN master data, DIN director lookup, statutory V3 STP filings, and authorized corporate data synchronization",
+      "id": "IN-API-0237"
+    },
+    {
+      "name": "Digital Sansad (Parliament of India) Open Data Portal",
+      "provider": "Parliament of India / NIC",
+      "domain": "Governance & Public Services",
+      "sub_domain": "Parliamentary & Legislative Data",
+      "access_tier": "Open Public",
+      "auth_method": "None",
+      "doc_url": "https://sansad.in/phistory",
+      "capabilities": "Structured Lok Sabha and Rajya Sabha bills, debates, starred/unstarred questions, committee reports, and MP records",
+      "id": "IN-API-0238"
+    },
+    {
+      "name": "Sanchar Saathi (CEIR / TAFCOP) Telecom Citizen Portal",
+      "provider": "Department of Telecommunications (DoT)",
+      "domain": "Utilities & Telecom",
+      "sub_domain": "Telecom Security & Compliance",
+      "access_tier": "Open Public",
+      "auth_method": "None",
+      "doc_url": "https://www.sancharsaathi.gov.in",
+      "capabilities": "IMEI genuineness verification (CEIR), mobile connection audit (TAFCOP), and Chakshu telecom fraud reporting services",
+      "id": "IN-API-0239"
+    },
+    {
+      "name": "Supreme Court of India e-SCR & Judgments Search Portal",
+      "provider": "Supreme Court of India / eCommittee",
+      "domain": "Judiciary & Legal",
+      "sub_domain": "Case Law & Judgments",
+      "access_tier": "Open Public",
+      "auth_method": "None",
+      "doc_url": "https://judgments.ecourts.gov.in/pdfsearch/index.php",
+      "capabilities": "Official Digital Supreme Court Reports (e-SCR) and High Court neutral-citation judgment full-text search and PDF retrieval",
+      "id": "IN-API-0240"
+    },
+    {
+      "name": "UHI (Unified Health Interface) / NHA-ABDM Open Protocols",
+      "provider": "National Health Authority (NHA)",
+      "domain": "Healthcare",
+      "sub_domain": "Health Network & Teleconsultation",
+      "access_tier": "Open Public",
+      "auth_method": "None",
+      "doc_url": "https://github.com/NHA-ABDM",
+      "capabilities": "Open Beckn-derived specifications for interoperable teleconsultation, lab booking, and ambulance discovery across ABDM",
+      "id": "IN-API-0241"
+    },
+    {
+      "name": "UDISE+ School Education Statistics Portal",
+      "provider": "Ministry of Education (MoE)",
+      "domain": "Education & Skilling",
+      "sub_domain": "Education Statistics",
+      "access_tier": "Open Public",
+      "auth_method": "None",
+      "doc_url": "https://udiseplus.gov.in",
+      "capabilities": "Unified District Information System for Education Plus (UDISE+) school registry, enrolment, teacher, and infrastructure data",
+      "id": "IN-API-0242"
+    },
+    {
+      "name": "AISHE Higher Education Survey Portal",
+      "provider": "Ministry of Education (MoE)",
+      "domain": "Education & Skilling",
+      "sub_domain": "Education Statistics",
+      "access_tier": "Open Public",
+      "auth_method": "None",
+      "doc_url": "https://aishe.gov.in",
+      "capabilities": "All India Survey on Higher Education (AISHE) university, college, standalone institution codes, and enrolment statistics",
+      "id": "IN-API-0243"
+    },
+    {
+      "name": "ONEST (Open Network for Education & Skilling Transactions)",
+      "provider": "ONEST / Beckn Open Network",
+      "domain": "Education & Skilling",
+      "sub_domain": "Open Networks (Beckn)",
+      "access_tier": "Open Public",
+      "auth_method": "None",
+      "doc_url": "https://beckn.io",
+      "capabilities": "Beckn-based decentralized discovery and transaction protocol for courses, scholarships, apprenticeships, and livelihood opportunities",
+      "id": "IN-API-0244"
+    },
+    {
+      "name": "Krutrim Cloud AI Inference APIs",
+      "provider": "Ola Krutrim",
+      "domain": "Culture, Language & Media",
+      "sub_domain": "Indic LLMs & AI Cloud",
+      "access_tier": "Paid/Commercial",
+      "auth_method": "API Key",
+      "doc_url": "https://docs.cloud.olakrutrim.com",
+      "capabilities": "OpenAI-compatible REST inference APIs for Krutrim Indic foundation models, multilingual translation, speech, and GPU cloud",
+      "id": "IN-API-0245"
+    },
+    {
+      "name": "BharatGen Sovereign Multimodal Indic AI Initiative",
+      "provider": "DST / IIT Bombay Consortium",
+      "domain": "Culture, Language & Media",
+      "sub_domain": "Indic LLMs & AI Cloud",
+      "access_tier": "Open Public",
+      "auth_method": "None",
+      "doc_url": "https://bharatgen.com",
+      "capabilities": "Government-backed sovereign multimodal foundation models (text, speech, vision) trained across Indian languages and public datasets",
+      "id": "IN-API-0246"
     }
   ]
 }

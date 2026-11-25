@@ -62,6 +62,8 @@ export function renderLandingHtml(): string {
     code { color: #fde68a; }
     a { color: #7dd3fc; }
     .links { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: 1.25rem; }
+    .cta { background: #1e293b; border: 1px solid #10b981; border-radius: 0.65rem; padding: 1.15rem 1.25rem; margin: 1.75rem 0 1.25rem; }
+    .cta h2 { margin-top: 0; color: #6ee7b7; }
     .btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 1rem; border-radius: 0.5rem; background: #065f46; color: #ffffff; text-decoration: none; font-weight: 600; }
     .btn.sec { background: #1e293b; border: 1px solid #475569; }
     footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid #334155; color: #94a3b8; font-size: 0.88rem; }
@@ -128,9 +130,21 @@ export function renderLandingHtml(): string {
       </tbody>
     </table>
 
+    <section class="cta" aria-label="Production Quota and Custom India DPI Integrations">
+      <h2>Production Quota &amp; Custom India DPI Integrations</h2>
+      <p>Hitting the 30 rpm / 500-day OGD cap, or integrating Partner-tier Indian DPIs (Aadhaar, AA, GSTN, ULIP, ABDM, ULI)? SriGenMedia Forward-Deployed Engineering builds dedicated relays, private VPC MCP servers, and DPDP-compliant pipelines.</p>
+      <div class="links">
+        <a class="btn" href="https://fde.srigenmedia.com/?utm_source=india-api-mcp&amp;utm_medium=ssr_landing&amp;utm_campaign=dedicated_quota" rel="noopener">Request Dedicated Quota / FDE Inquiry &rarr;</a>
+        <a class="btn sec" href="https://github.com/srigenmedia/india-api-mcp/issues/new?template=api-request.yml" rel="noopener">Request a Missing Indian API</a>
+      </div>
+    </section>
+
     <div class="links">
-      <a class="btn" href="https://srigenmedia.com" rel="noopener">SriGenMedia Platform</a>
-      <a class="btn sec" href="https://route.srigenmedia.com" rel="noopener">SovereignRoute DPDP/RBI LLM Router</a>
+      <a class="btn sec" href="https://srigenmedia.com/?utm_source=india-api-mcp&amp;utm_medium=ssr_landing" rel="noopener">SriGenMedia Platform</a>
+      <a class="btn sec" href="https://route.srigenmedia.com/?utm_source=india-api-mcp&amp;utm_medium=ssr_landing" rel="noopener">SovereignRoute DPDP/RBI Router</a>
+      <a class="btn sec" href="https://kavach.srigenmedia.com/?utm_source=india-api-mcp&amp;utm_medium=ssr_landing" rel="noopener">Kavach KYA Agent Trust</a>
+      <a class="btn sec" href="https://vashishta.srigenmedia.com/developers/402?utm_source=india-api-mcp&amp;utm_medium=ssr_landing" rel="noopener">402-in-a-Box API Monetization</a>
+      <a class="btn sec" href="https://craft.srigenmedia.com/?utm_source=india-api-mcp&amp;utm_medium=ssr_landing" rel="noopener">CraftCI Security Gates</a>
       <a class="btn sec" href="https://github.com/srigenmedia/india-api-mcp" rel="noopener">Source on GitHub</a>
     </div>
 

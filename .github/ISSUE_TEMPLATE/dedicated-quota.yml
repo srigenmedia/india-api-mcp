@@ -1,0 +1,39 @@
+name: Dedicated Quota / Custom India DPI MCP Inquiry
+description: Request dedicated OGD/IP quotas, private VPC deployment, or custom India DPI integrations via SriGenMedia FDE.
+title: "[Quota / FDE]: "
+labels: ["enterprise", "fde-inquiry"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Need higher throughput than `30 req/min` or `500/day` OGD upstream calls, or building a custom integration on Partner-tier Indian DPIs (Aadhaar, Account Aggregator, GSTN, ULIP, ABDM, ULI)?
+        For direct scheduling and architecture review, visit [fde.srigenmedia.com](https://fde.srigenmedia.com/?utm_source=india-api-mcp&utm_medium=github_issue).
+  - type: dropdown
+    id: vertical
+    attributes:
+      label: Primary Vertical
+      options:
+        - Fintech / NBFC / BFSI
+        - Logistics / Quick-Commerce
+        - AgriTech / Commodities
+        - GovTech / LegalTech / HealthTech
+        - AI Agency / SaaS Platform
+    validations:
+      required: true
+  - type: textarea
+    id: apis
+    attributes:
+      label: Target APIs & Volume
+      description: Which tools or Indian DPIs do you need, and what is your expected RPS / daily volume?
+    validations:
+      required: true
+  - type: dropdown
+    id: deployment
+    attributes:
+      label: Preferred Deployment Model
+      options:
+        - Dedicated SriGenMedia Managed Relay / SLA
+        - Private Cloudflare Workers / AWS ap-south-1 VPC
+        - Custom MCP Server via SriGenMedia FDE
+    validations:
+      required: true

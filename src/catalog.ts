@@ -11,7 +11,7 @@ export interface SearchApisInput {
   limit?: number;
 }
 
-/** Search the offline catalog of 220 Indian public APIs. */
+/** Search the offline catalog of Indian public APIs. */
 export function searchApis(args: SearchApisInput = {}): ApiEntry[] {
   const q = String(args.query ?? "").trim().toLowerCase();
   const domain = String(args.domain ?? "").trim().toLowerCase();
