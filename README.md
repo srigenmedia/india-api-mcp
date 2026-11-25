@@ -70,7 +70,7 @@ MCP Resources: `india-apis://taxonomy`, `india-apis://catalog`.
 
 Need higher limits (`>30 rpm` / `>500/day` OGD upstream), private `ap-south-1` VPC deployment, or custom production MCPs for Partner-tier Indian DPIs (Aadhaar, Account Aggregator, GSTN, ULIP, ABDM, ULI)?
 
-- **Forward-Deployed Engineering & Dedicated Quota:** [fde.srigenmedia.com](https://fde.srigenmedia.com/?utm_source=india-api-mcp&utm_medium=readme&utm_campaign=dedicated_quota) · [SriGenMedia Platform](https://srigenmedia.com/?utm_source=india-api-mcp&utm_medium=readme)
+- **Forward-Deployed Engineering & Dedicated Quota:** [srigenmedia.com/contact](https://srigenmedia.com/contact?utm_source=india-api-mcp&utm_medium=readme&utm_campaign=dedicated_quota) · [SriGenMedia Platform](https://srigenmedia.com/?utm_source=india-api-mcp&utm_medium=readme)
 - **GitHub Forms:** [Request Dedicated Quota / FDE Inquiry](https://github.com/srigenmedia/india-api-mcp/issues/new?template=dedicated-quota.yml) · [Request a Missing Indian API](https://github.com/srigenmedia/india-api-mcp/issues/new?template=api-request.yml)
 - **Production Pillars:**
   - [SovereignRoute](https://route.srigenmedia.com/?utm_source=india-api-mcp&utm_medium=readme) — DPDP / RBI compliant LLM & data routing

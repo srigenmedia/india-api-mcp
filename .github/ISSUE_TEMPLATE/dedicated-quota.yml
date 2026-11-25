@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         Need higher throughput than `30 req/min` or `500/day` OGD upstream calls, or building a custom integration on Partner-tier Indian DPIs (Aadhaar, Account Aggregator, GSTN, ULIP, ABDM, ULI)?
-        For direct scheduling and architecture review, visit [fde.srigenmedia.com](https://fde.srigenmedia.com/?utm_source=india-api-mcp&utm_medium=github_issue).
+        For direct scheduling and architecture review, visit [srigenmedia.com/contact](https://srigenmedia.com/contact?utm_source=india-api-mcp&utm_medium=github_issue).
   - type: dropdown
     id: vertical
     attributes:

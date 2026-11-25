@@ -103,7 +103,8 @@ describe("india-api-mcp catalog, digipin, and MCP protocol", () => {
     expect(html).toContain("Not affiliated with");
     expect(html).toContain('href="/catalog"');
     expect(html).toContain("BFSI");
-    expect(html).toContain("fde.srigenmedia.com/?utm_source=india-api-mcp");
+    expect(html).toContain("srigenmedia.com/contact?utm_source=india-api-mcp");
+    expect(html).not.toContain("fde.srigenmedia.com");
     expect(html).toContain("issues/new?template=api-request.yml");
     expect(html.toLowerCase()).not.toContain("razorpay.com/checkout");
 
@@ -112,7 +113,8 @@ describe("india-api-mcp catalog, digipin, and MCP protocol", () => {
     const catalogHtml = await catalogPage.text();
     expect(catalogHtml).toContain("IN-API-0001");
     expect(catalogHtml).toContain("IN-API-0246");
-    expect(catalogHtml).toContain("fde.srigenmedia.com/?utm_source=india-api-mcp");
+    expect(catalogHtml).toContain("srigenmedia.com/contact?utm_source=india-api-mcp");
+    expect(catalogHtml).not.toContain("fde.srigenmedia.com");
     expect(catalogHtml).toContain("issues/new?template=api-request.yml");
 
     const catalogJsonRes = await handler.fetch(new Request("https://india-api.srigenmedia.com/catalog.json"), env);

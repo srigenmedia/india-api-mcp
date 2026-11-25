@@ -53,7 +53,7 @@ describe("india-api-mcp negative VAPT & quota guardrails", () => {
     expect(blocked.status).toBe(429);
     expect(blocked.headers.get("retry-after")).toBe("60");
     const txt = await blocked.text();
-    expect(txt).toContain("fde.srigenmedia.com/?utm_source=india-api-mcp");
+    expect(txt).toContain("srigenmedia.com/contact?utm_source=india-api-mcp");
     expect(txt).not.toMatch(STACK_RE);
   });
 
@@ -83,7 +83,7 @@ describe("india-api-mcp negative VAPT & quota guardrails", () => {
     expect(Number(ogdRes.headers.get("retry-after"))).toBeGreaterThan(0);
     expect(upstreamCalls).toBe(0);
     const ogdText = await ogdRes.text();
-    expect(ogdText).toContain("fde.srigenmedia.com/?utm_source=india-api-mcp");
+    expect(ogdText).toContain("srigenmedia.com/contact?utm_source=india-api-mcp");
     expect(ogdText).not.toContain("super-secret-ogd-key");
     expect(ogdText).not.toMatch(STACK_RE);
 

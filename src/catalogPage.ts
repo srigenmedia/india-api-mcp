@@ -91,7 +91,7 @@ export function renderCatalogHtml(): string {
       <div class="nav">
         <a class="btn" href="/">Back to MCP Overview</a>
         <a class="btn pri" href="/catalog.json">Download JSON</a>
-        <a class="btn pri" href="https://fde.srigenmedia.com/?utm_source=india-api-mcp&amp;utm_medium=catalog_nav&amp;utm_campaign=dedicated_quota" rel="noopener">Dedicated Quota / FDE</a>
+        <a class="btn pri" href="https://srigenmedia.com/contact?utm_source=india-api-mcp&amp;utm_medium=catalog_nav&amp;utm_campaign=dedicated_quota" rel="noopener">Dedicated Quota / FDE</a>
       </div>
     </div>
 
@@ -115,7 +115,7 @@ export function renderCatalogHtml(): string {
     <div class="cta">
       <div><strong>Need higher rate limits, private OGD relays, or custom integration for Sandbox/Partner Indian APIs?</strong></div>
       <div class="nav">
-        <a class="btn pri" href="https://fde.srigenmedia.com/?utm_source=india-api-mcp&amp;utm_medium=catalog_footer&amp;utm_campaign=fde_integration" rel="noopener">Talk to SriGenMedia FDE &rarr;</a>
+        <a class="btn pri" href="https://srigenmedia.com/contact?utm_source=india-api-mcp&amp;utm_medium=catalog_footer&amp;utm_campaign=fde_integration" rel="noopener">Talk to SriGenMedia FDE &rarr;</a>
         <a class="btn" href="https://github.com/srigenmedia/india-api-mcp/issues/new?template=api-request.yml" rel="noopener">Request an API</a>
       </div>
     </div>

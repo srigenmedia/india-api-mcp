@@ -134,7 +134,7 @@ export function renderLandingHtml(): string {
       <h2>Production Quota &amp; Custom India DPI Integrations</h2>
       <p>Hitting the 30 rpm / 500-day OGD cap, or integrating Partner-tier Indian DPIs (Aadhaar, AA, GSTN, ULIP, ABDM, ULI)? SriGenMedia Forward-Deployed Engineering builds dedicated relays, private VPC MCP servers, and DPDP-compliant pipelines.</p>
       <div class="links">
-        <a class="btn" href="https://fde.srigenmedia.com/?utm_source=india-api-mcp&amp;utm_medium=ssr_landing&amp;utm_campaign=dedicated_quota" rel="noopener">Request Dedicated Quota / FDE Inquiry &rarr;</a>
+        <a class="btn" href="https://srigenmedia.com/contact?utm_source=india-api-mcp&amp;utm_medium=ssr_landing&amp;utm_campaign=dedicated_quota" rel="noopener">Request Dedicated Quota / FDE Inquiry &rarr;</a>
         <a class="btn sec" href="https://github.com/srigenmedia/india-api-mcp/issues/new?template=api-request.yml" rel="noopener">Request a Missing Indian API</a>
       </div>
     </section>
