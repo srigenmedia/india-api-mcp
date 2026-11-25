@@ -1,0 +1,144 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Zero-cost AWS ap-south-1 OGD relay for india-api-mcp (HMAC-SHA256 authenticated)
+
+Parameters:
+  OgdKey:
+    Type: String
+    NoEcho: true
+    Description: data.gov.in API key passed in-memory during stack deployment
+  RelaySecret:
+    Type: String
+    NoEcho: true
+    Description: Shared HMAC-SHA256 secret between Cloudflare Worker and Lambda relay
+
+Resources:
+  OgdRelayLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: /aws/lambda/india-api-mcp-ogd-relay
+      RetentionInDays: 7
+
+  OgdRelayRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: india-api-mcp-ogd-relay-role
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+
+  OgdRelayFunction:
+    Type: AWS::Lambda::Function
+    DependsOn: OgdRelayLogGroup
+    Properties:
+      FunctionName: india-api-mcp-ogd-relay
+      Description: Signed OGD relay for india-api.srigenmedia.com
+      Runtime: nodejs22.x
+      Architectures:
+        - arm64
+      Handler: index.handler
+      MemorySize: 128
+      Timeout: 12
+      Role: !GetAtt OgdRelayRole.Arn
+      Environment:
+        Variables:
+          OGD_KEY: !Ref OgdKey
+          OGD_RELAY_SECRET: !Ref RelaySecret
+      Code:
+        ZipFile: |
+          const crypto = require("node:crypto");
+          const RID_RE = /^[a-fA-F0-9-]{8,64}$/;
+          const KEY_RE = /^[a-zA-Z0-9_.-]{1,64}$/;
+          const HEX_RE = /^[0-9a-f]{64}$/i;
+          const json = (statusCode, obj) => ({
+            statusCode,
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(obj)
+          });
+          exports.handler = async (event) => {
+            const method = event?.requestContext?.http?.method || "";
+            if (method !== "POST") return json(405, { error: "Method Not Allowed" });
+            const ogdKey = (process.env.OGD_KEY || "").trim();
+            const secret = (process.env.OGD_RELAY_SECRET || "").trim();
+            if (!ogdKey || !secret) return json(503, { error: "Relay misconfigured" });
+            const rawBody = event.body
+              ? (event.isBase64Encoded ? Buffer.from(event.body, "base64").toString("utf8") : String(event.body))
+              : "";
+            if (Buffer.byteLength(rawBody, "utf8") > 8192) return json(413, { error: "Payload too large" });
+            const hdrs = {};
+            for (const [k, v] of Object.entries(event.headers || {})) hdrs[k.toLowerCase()] = String(v ?? "");
+            const ts = hdrs["x-relay-timestamp"] || "";
+            const sig = hdrs["x-relay-signature"] || "";
+            const tsNum = Number.parseInt(ts, 10);
+            const nowSec = Math.floor(Date.now() / 1000);
+            if (!/^\d{10,12}$/.test(ts) || !Number.isFinite(tsNum) || Math.abs(nowSec - tsNum) > 60) {
+              return json(401, { error: "Unauthorized" });
+            }
+            if (!HEX_RE.test(sig)) return json(401, { error: "Unauthorized" });
+            const expected = crypto.createHmac("sha256", secret).update(`${ts}.${rawBody}`).digest("hex");
+            if (!crypto.timingSafeEqual(Buffer.from(sig, "hex"), Buffer.from(expected, "hex"))) {
+              return json(401, { error: "Unauthorized" });
+            }
+            let payload;
+            try { payload = JSON.parse(rawBody); } catch { return json(400, { error: "Invalid JSON" }); }
+            const rid = String(payload?.resource_id ?? "").trim();
+            if (!RID_RE.test(rid)) return json(400, { error: "Invalid resource_id" });
+            const rawLim = Number.isFinite(Number(payload?.limit)) ? Math.trunc(Number(payload.limit)) : 10;
+            const limit = Math.max(1, Math.min(rawLim, 100));
+            const qs = new URLSearchParams({ "api-key": ogdKey, format: "json", limit: String(limit) });
+            const filters = Array.isArray(payload?.filters) ? payload.filters.slice(0, 10) : [];
+            for (const pair of filters) {
+              if (!Array.isArray(pair) || pair.length !== 2) continue;
+              const fk = String(pair[0] ?? "").trim();
+              const fv = String(pair[1] ?? "").trim();
+              if (!KEY_RE.test(fk)) return json(400, { error: "Invalid filter key" });
+              if (fv) qs.set(`filters[${fk}]`, fv.slice(0, 128));
+            }
+            try {
+              const r = await fetch(`https://api.data.gov.in/resource/${rid}?${qs.toString()}`, {
+                headers: { Accept: "application/json", "User-Agent": "IndiaPublicAPIsMCP/0.1" },
+                signal: AbortSignal.timeout(9000)
+              });
+              if (!r.ok) {
+                await r.body?.cancel();
+                return json(502, { error: `Upstream api.data.gov.in returned HTTP ${r.status}` });
+              }
+              const body = (await r.text()).slice(0, 200000);
+              return { statusCode: 200, headers: { "content-type": "application/json" }, body };
+            } catch {
+              return json(502, { error: "Upstream api.data.gov.in request failed" });
+            }
+          };
+
+  OgdRelayUrl:
+    Type: AWS::Lambda::Url
+    Properties:
+      AuthType: NONE
+      InvokeMode: BUFFERED
+      TargetFunctionArn: !GetAtt OgdRelayFunction.Arn
+
+  OgdRelayUrlPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref OgdRelayFunction
+      Action: lambda:InvokeFunctionUrl
+      Principal: "*"
+      FunctionUrlAuthType: NONE
+
+  OgdRelayInvokePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref OgdRelayFunction
+      Action: lambda:InvokeFunction
+      Principal: "*"
+      InvokedViaFunctionUrl: true
+
+Outputs:
+  RelayUrl:
+    Description: Function URL for authenticated Cloudflare Worker OGD relay calls
+    Value: !GetAtt OgdRelayUrl.FunctionUrl

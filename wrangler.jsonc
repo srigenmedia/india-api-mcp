@@ -1,0 +1,73 @@
+{
+  "name": "india-api-mcp-edge",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-11-25",
+  "routes": [
+    {
+      "pattern": "india-api.srigenmedia.com",
+      "custom_domain": true
+    }
+  ],
+  "observability": {
+    "enabled": true,
+    "traces": {
+      "enabled": true
+    }
+  },
+  "vars": {
+    "ENVIRONMENT": "production",
+    "OGD_DAILY_LIMIT": "500",
+    "IP_RPM_LIMIT": "30",
+    "PIN_IFSC_CACHE_TTL_SEC": "86400",
+    "OGD_CACHE_TTL_SEC": "21600"
+  },
+  "ratelimits": [
+    {
+      "name": "IP_RATE_LIMITER",
+      "namespace_id": "2041",
+      "simple": {
+        "limit": 30,
+        "period": 60
+      }
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "QUOTA_DB",
+      "database_name": "india-api-mcp-quota",
+      "database_id": "3cd53c3d-6a3a-4375-b065-08741fbb6d7c",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "env": {
+    "staging": {
+      "name": "india-api-mcp-edge-staging",
+      "workers_dev": true,
+      "vars": {
+        "ENVIRONMENT": "staging",
+        "OGD_DAILY_LIMIT": "500",
+        "IP_RPM_LIMIT": "30",
+        "PIN_IFSC_CACHE_TTL_SEC": "86400",
+        "OGD_CACHE_TTL_SEC": "21600"
+      },
+      "ratelimits": [
+        {
+          "name": "IP_RATE_LIMITER",
+          "namespace_id": "2041",
+          "simple": {
+            "limit": 30,
+            "period": 60
+          }
+        }
+      ],
+      "d1_databases": [
+        {
+          "binding": "QUOTA_DB",
+          "database_name": "india-api-mcp-quota",
+          "database_id": "3cd53c3d-6a3a-4375-b065-08741fbb6d7c",
+          "migrations_dir": "migrations"
+        }
+      ]
+    }
+  }
+}

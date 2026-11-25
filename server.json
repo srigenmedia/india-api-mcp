@@ -1,0 +1,24 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.srigenmedia/india-api-mcp",
+  "title": "India Public APIs MCP",
+  "description": "220 Indian public APIs catalog plus live PIN code, IFSC, DIGIPIN and data.gov.in mandi prices.",
+  "version": "0.1.0",
+  "websiteUrl": "https://india-api.srigenmedia.com",
+  "repository": {
+    "url": "https://github.com/srigenmedia/india-api-mcp",
+    "source": "github"
+  },
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/srigenmedia/india-api-mcp/main/assets/icon.svg",
+      "mimeType": "image/svg+xml"
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://india-api.srigenmedia.com/mcp"
+    }
+  ]
+}

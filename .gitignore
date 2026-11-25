@@ -1,0 +1,8 @@
+node_modules/
+.wrangler/
+dist/
+.dev.vars
+__pycache__/
+.pytest_cache/
+*.pyc
+*-audit-report.json
